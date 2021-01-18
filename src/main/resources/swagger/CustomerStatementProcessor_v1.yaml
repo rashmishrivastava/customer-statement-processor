@@ -1,0 +1,218 @@
+swagger: "2.0"
+host: "api.nl.eu.cts.com"
+schemes:
+  - "https"
+info:
+  version: "1.0.0"
+  title: "CustomerStatementProcessor"
+  x-apiType: "enterprise"
+  description:
+    "This API validates the monthly deliveries of customer statement records recieved by bank."
+basePath: "/customerStatementProcessor/v1"
+paths:
+  /:
+    post:
+      tags:
+        - "CustomerStatementProcessor"
+      description:
+        "Returns the response upon validating the customer statement records"
+      operationId: "customerStatementProcessor"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+
+        - name: "body"
+          in: "body"
+          description: "CustomerStatementProcessorRequest which consists of list of CustomerStatementItems."
+          required: true
+          schema:
+            $ref: "#/definitions/CustomerStatementProcessorRequest"
+      responses:
+        '200':
+          description: |
+            "Successful Operation!"
+          examples:
+            application/json:
+              {
+                "results": [
+                  {
+                    "result": "SUCCESSFUL",
+                    "errorRecords": []
+                  },
+                  {
+                    "result": "DUPLICATE_REFERENCE",
+                    "errorRecords": [
+                      {
+                        "reference" : "reference_of_error_record",
+                        "accountNumber" : "account_number_of_error_record"
+                      }
+                    ]
+                  },
+                  {
+                    "result": " INCORRECT_END_BALANCE",
+                    "errorRecords": [
+                      {
+                        "reference": "reference_of_error_record",
+                        "accountNumber": "account_number_of_error_record"
+                      }
+                    ]
+                  },
+                  {
+                    "result": " DUPLICATE_REFERENCE_INCORRECT_END_BALANCE",
+                    "errorRecords": [
+                      {
+                        "reference": "reference_of_duplicate_record",
+                        "accountNumber": "account_number_of_duplicate_record"
+                      },
+                      {
+                        "reference": "reference_of_inCorrectEndBalance_record",
+                        "accountNumber": "account_number_of_inCorrectEndBalance_record"
+                      }
+                    ]
+                  }
+                ]
+              }
+
+          schema:
+            $ref: "#/definitions/CustomerStatementProcessorResponse"
+        '400':
+          description: |
+            "BAD Request"
+
+            Detailed Error List:
+            ---
+            - BAD_REQUEST
+              > A code that indicates error during parsing JSON.
+
+          examples:
+            application/json :
+              {
+                "results": [
+                  {
+                    "result": "BAD_REQUEST",
+                    "errorRecords": []
+                  }
+                ]
+              }
+
+          schema:
+            $ref: "#/definitions/CustomerStatementProcessorResponse"
+
+        '500':
+          description: |
+            "Internal Server Error"
+
+            Detailed Error List:
+            ---
+            - INTERNAL_SERVER_ERROR
+              > Internal error occurred
+          examples:
+            {
+              application/json :
+                {
+                  "results": [
+                    {
+                      "result": "NTERNAL_SERVER_ERROR",
+                      "errorRecords": []
+                    }
+                  ]
+                }
+            }
+
+          schema:
+            $ref: "#/definitions/CustomerStatementProcessorResponse"
+
+
+definitions:
+  ErrorRecord:
+    description:
+      "An Object which represents an individual record in the customer processor statement in case of any error."
+    type: object
+    required:
+      - "reference"
+      - "accountNumber"
+    properties:
+      reference:
+        description:
+          "An unique reference id used to identify customer statement."
+        type: integer
+        format: int64
+        example: 442216661
+
+      accountNumber:
+        description: "IBAN to which the payments needs to be addressed"
+        type: "string"
+        example: "NL26RB1267626726"
+
+  CustomerStatementProcessorRequest:
+    type: array
+    minItems: 1
+    maxItems: 200
+    items:
+      $ref: '#/definitions/CustomerStatementItem'
+
+  CustomerStatementItem:
+    description:
+      "An Object consists of attributes used in the request body"
+    required:
+      - "transactionReference"
+      - "accountNumber"
+    properties:
+      reference:
+        description:
+          "An unique reference id used to identify customer statement."
+        type: integer
+        format: int64
+        example: 442216661
+
+      accountNumber:
+        description: "IBAN to which the payments needs to be addressed"
+        type: "string"
+        example: "NL26RB1267626726"
+
+      startBalance:
+        description:
+          "Starting balance of the customer."
+        type: number
+        format: double
+        example: 123.43
+
+      mutation:
+        description:
+          "Either an addition or deduction in balance"
+        type: number
+        format: double
+        example: 123.43
+
+      description:
+        description:
+          "Description of customer transaction"
+        type: string
+        example: "Paid to BodyShop"
+
+      endBalance:
+        description:
+          "End balance of the customer."
+        type: number
+        format: double
+        example: 123.43
+
+  CustomerStatementProcessorResponse:
+    description: "This response indicates theh output of customer statement processor."
+    type: object
+    required:
+      - "result"
+    properties:
+      result:
+        description: "A unique value to identify the customer statement processor response."
+        type: string
+        example: "SUCCESSFUL"
+
+      errorRecords:
+        type: array
+        minItems: 0
+        maxItems: 200
+        items:
+          $ref: '#/definitions/ErrorRecord'
