@@ -25,7 +25,7 @@ public class CustomerStatementService {
      * @param customerStatementProcessorItems the customer statement processor items
      * @return the customer statement processor response
      */
-    public CustomerStatementProcessorResponse processor(CustomerStatementProcessorRequest customerStatementProcessorItems){
+    public CustomerStatementProcessorResponse processor(CustomerStatementProcessorRequest customerStatementProcessorItems) {
 
         return validator.validateAndGetErrorRecords(customerStatementProcessorItems);
 

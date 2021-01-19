@@ -32,7 +32,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
      * @return the response entity
      */
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Object> handleAnyException(){
+    public ResponseEntity<Object> handleAnyException() {
         return buildResponseEntity(new CustomerStatementProcessorResponse(ProcessingResult.INTERNAL_SERVER_ERROR, Collections.emptyList()), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 

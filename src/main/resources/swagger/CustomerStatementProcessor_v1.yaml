@@ -8,7 +8,7 @@ info:
   x-apiType: "enterprise"
   description:
     "This API validates the monthly deliveries of customer statement records recieved by bank."
-basePath: "/customerStatementProcessor/v1"
+basePath: "/customer-statement-processor/v1"
 paths:
   /:
     post:
@@ -39,14 +39,14 @@ paths:
                 "results": [
                   {
                     "result": "SUCCESSFUL",
-                    "errorRecords": []
+                    "errorRecords": [ ]
                   },
                   {
                     "result": "DUPLICATE_REFERENCE",
                     "errorRecords": [
                       {
-                        "reference" : "reference_of_error_record",
-                        "accountNumber" : "account_number_of_error_record"
+                        "reference": "reference_of_error_record",
+                        "accountNumber": "account_number_of_error_record"
                       }
                     ]
                   },
@@ -87,12 +87,12 @@ paths:
               > A code that indicates error during parsing JSON.
 
           examples:
-            application/json :
+            application/json:
               {
                 "results": [
                   {
                     "result": "BAD_REQUEST",
-                    "errorRecords": []
+                    "errorRecords": [ ]
                   }
                 ]
               }
@@ -110,12 +110,12 @@ paths:
               > Internal error occurred
           examples:
             {
-              application/json :
+              application/json:
                 {
                   "results": [
                     {
                       "result": "NTERNAL_SERVER_ERROR",
-                      "errorRecords": []
+                      "errorRecords": [ ]
                     }
                   ]
                 }

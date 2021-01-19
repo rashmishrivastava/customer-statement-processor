@@ -14,14 +14,14 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 @Component
 public class RequestInterceptor extends HandlerInterceptorAdapter {
-	
-	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
-		
-		log.info("API endPoint - {} is invoked at {}." ,  request.getRequestURI() ,  System.currentTimeMillis());
-		return true;
 
-	}
-	
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+            throws Exception {
+
+        log.info("API endPoint - {} is invoked at {}.", request.getRequestURI(), System.currentTimeMillis());
+        return true;
+
+    }
+
 }

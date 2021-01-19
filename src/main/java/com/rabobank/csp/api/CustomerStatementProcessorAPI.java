@@ -18,24 +18,24 @@ import javax.validation.Valid;
  */
 @RestController
 public class CustomerStatementProcessorAPI {
-	
-	@Autowired
-	private CustomerStatementService customerStatementService;
+
+    @Autowired
+    private CustomerStatementService customerStatementService;
 
 
-	/**
-	 * Customer statement processor response entity.
-	 *
-	 * @param customerStatementProcessorItems the customer statement processor items
-	 * @return the response entity
-	 */
-	@PostMapping(path="/customerStatementProcessor/v1", consumes = "application/json",  produces = "application/json")
-	public ResponseEntity<CustomerStatementProcessorResponse> customerStatementProcessor(@Valid @RequestBody CustomerStatementProcessorRequest customerStatementProcessorItems) {
+    /**
+     * Customer statement processor response entity.
+     *
+     * @param customerStatementProcessorItems the customer statement processor items
+     * @return the response entity
+     */
+    @PostMapping(path = "/customer-statement-processor/v1", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<CustomerStatementProcessorResponse> customerStatementProcessor(@Valid @RequestBody CustomerStatementProcessorRequest customerStatementProcessorItems) {
 
-		CustomerStatementProcessorResponse transactionResponse= customerStatementService.processor(customerStatementProcessorItems);
+        CustomerStatementProcessorResponse transactionResponse = customerStatementService.processor(customerStatementProcessorItems);
 
-		return new ResponseEntity<>(transactionResponse,HttpStatus.OK);
-	}
+        return new ResponseEntity<>(transactionResponse, HttpStatus.OK);
+    }
 
 
 }

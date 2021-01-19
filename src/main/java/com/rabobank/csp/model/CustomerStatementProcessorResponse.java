@@ -18,63 +18,63 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomerStatementProcessorResponse {
-  @SerializedName("result")
-  private ProcessingResult result = null;
+    @SerializedName("result")
+    private ProcessingResult result = null;
 
-  @SerializedName("errorRecords")
-  private List<ErrorRecord> errorRecords = null;
+    @SerializedName("errorRecords")
+    private List<ErrorRecord> errorRecords = null;
 
-  /**
-   * Result customer statement processor response.
-   *
-   * @param result the result
-   * @return the customer statement processor response
-   */
-  public CustomerStatementProcessorResponse result(ProcessingResult result) {
-    this.result = result;
-    return this;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Result customer statement processor response.
+     *
+     * @param result the result
+     * @return the customer statement processor response
+     */
+    public CustomerStatementProcessorResponse result(ProcessingResult result) {
+        this.result = result;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        CustomerStatementProcessorResponse customerStatementProcessorResponse = (CustomerStatementProcessorResponse) o;
+        return Objects.equals(this.result, customerStatementProcessorResponse.result) &&
+                Objects.equals(this.errorRecords, customerStatementProcessorResponse.errorRecords);
     }
-    CustomerStatementProcessorResponse customerStatementProcessorResponse = (CustomerStatementProcessorResponse) o;
-    return Objects.equals(this.result, customerStatementProcessorResponse.result) &&
-        Objects.equals(this.errorRecords, customerStatementProcessorResponse.errorRecords);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(result, errorRecords);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CustomerStatementProcessorResponseDTO {\n");
-    
-    sb.append("    result: ").append(toIndentedString(result)).append("\n");
-    sb.append("    errorRecords: ").append(toIndentedString(errorRecords)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    @Override
+    public int hashCode() {
+        return Objects.hash(result, errorRecords);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class CustomerStatementProcessorResponseDTO {\n");
+
+        sb.append("    result: ").append(toIndentedString(result)).append("\n");
+        sb.append("    errorRecords: ").append(toIndentedString(errorRecords)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

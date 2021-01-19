@@ -17,36 +17,36 @@ import java.util.Objects;
 @AllArgsConstructor
 public class CustomerStatementItem {
 
-  @SerializedName("reference")
-  private Long reference;
+    @SerializedName("reference")
+    private Long reference;
 
-  @SerializedName("accountNumber")
-  private String accountNumber;
+    @SerializedName("accountNumber")
+    private String accountNumber;
 
-  @SerializedName("startBalance")
-  private BigDecimal startBalance;
+    @SerializedName("startBalance")
+    private BigDecimal startBalance;
 
-  @SerializedName("mutation")
-  private BigDecimal mutation;
+    @SerializedName("mutation")
+    private BigDecimal mutation;
 
-  @SerializedName("description")
-  private String description;
+    @SerializedName("description")
+    private String description;
 
-  @SerializedName("endBalance")
-  private BigDecimal endBalance;
+    @SerializedName("endBalance")
+    private BigDecimal endBalance;
 
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    CustomerStatementItem that = (CustomerStatementItem) o;
-    return Objects.equals(reference, that.reference);
-  }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CustomerStatementItem that = (CustomerStatementItem) o;
+        return Objects.equals(reference, that.reference);
+    }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(reference);
-  }
+    @Override
+    public int hashCode() {
+        return Objects.hash(reference);
+    }
 }
 

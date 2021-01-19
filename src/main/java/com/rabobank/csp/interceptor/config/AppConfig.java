@@ -15,14 +15,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class AppConfig implements WebMvcConfigurer {
 
-	@Autowired
-	private RequestInterceptor requestInterceptor;
+    @Autowired
+    private RequestInterceptor requestInterceptor;
 
-	// This method will get invoked by container while deployment
-	@Override
-	public void addInterceptors(InterceptorRegistry interceptorRegistry) {
+    // This method will get invoked by container while deployment
+    @Override
+    public void addInterceptors(InterceptorRegistry interceptorRegistry) {
 
-		// adding interceptor to registry
-		interceptorRegistry.addInterceptor(requestInterceptor);
-	}
+        // adding interceptor to registry
+        interceptorRegistry.addInterceptor(requestInterceptor);
+    }
 }
