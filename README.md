@@ -1,41 +1,68 @@
+
 # Customer Statement Processor
 
-In our bank we receives monthly deliveries of customer statement records. This information is delivered in JSON Format.
-These records need to be validated.
+This project consists of REST API which validates the customer statements recieved in a particular bank. The requirements are specified [here](https://github.com/rashmishrivastava/customer-statement-processor/blob/main/AssignmentSpecifications.md)
 
-## Input
+# Run the Project
 
-The format is as follows: Table 1. Record description
+Once you have configured this project in your IDE you can build it from there. However if you prefer you can use maven from the command line. In that case you could be interested in this short list of commands:
 
-| Field                  | Description                                      | 
-|------------------------|------------------------------------------------- |
-| Transaction reference  |A numeric value                                   |
-| Account number         |  An IBAN                                         |
-| Start Balance          |  The starting balance in Euros                   |
-| Mutation               |  Either an addition (+) or a deduction (-)       |
-| Description            | Free text                                        |
-| End Balance            | The end balance in Euros                         |
+* `mvn compile`: it will just compile the code of your application and tell you if there are errors
+* `mvn test`: it will compile the code of your application and your tests. It will then run your tests (if you wrote any) and let you know if some fails
+* `mvn install`: it will do everything `mvn test` does and then if everything looks file it will install the library or the application into your local maven repository (typically under <USER FOLDER>/.m2). In this way you could use this library from other projects you want to build on the same machine
 
-## Assignment
+Once you have setup the project and ran the application in your IDE , you can use POSTMAN Tool to verify the REST API
 
-Implement a REST service which receives the customer statement JSON as a POST data, Perform the below validations
+# URL of REST API
 
-1. All transaction references should be unique
-2. The end balance needs to be validated ( Start Balance +/- Mutation = End Balance )
+* `http://localhost:8080/customer-statement-processor/v1`
 
-## Expected Output
+# Sample Input request
 
-| Http Status Code  | Condition                                                         |  Response format |
-|---                |---                                                                |---               |
-| 200               | When there are no duplicate reference and correct end balance     | `{"result" : "SUCCESSFUL", "errorRecords" : []}`|
-| 200               |When there are duplicate reference and correct balance             |[duplicateReferenceAndcorrectBalance Json](./duplicateReferenceAndcorrectBalance.json)|
-| 200               |When there are no duplicate reference and In correct balance       |[IncorrectBalance Json](./IncorrectBalance.json)|
-| 200               |When there are duplicate reference and In correct balance          |[duplicateReferenceAndIncorrectBalance Json](./duplicateReferenceAndIncorrectBalance.json)|
-| 400               |Error during parsing JSON                                          | `{"result" : "BAD_REQUEST", "errorRecords" : []}`|
-| 500               |Any other situation                                                |`{"result" : "INTERNAL_SERVER_ERROR","errorRecords" : [] }`|
+[
+  {
+    "reference": 442216661,
+    "accountNumber": "NL26RB1267626726",
+    "startBalance": 123.43,
+    "mutation": 3.43,
+    "decription": "Paid to Grocery",
+    "endBalance": 126.86
+  },
+  {
+    "reference": 442216662,
+    "accountNumber": "NL26RB1267626726",
+    "startBalance": 123.43,
+    "mutation": 3.43,
+    "decription": "Paid to Bol.com",
+    "endBalance": 126.86
+  },
+  {
+    "reference": 442216663,
+    "accountNumber": "NL26RB1267626726",
+    "startBalance": 123.43,
+    "mutation": 3.43,
+    "decription": "Paid to Amazon",
+    "endBalance": 126.86
+  }
+]
 
-## Instructions
+Below is the screenshot of testing the REST API in POSTMAN Tool:
 
-* Assignment should be submitted as a maven project
-* Junit should be well written.
-* Integration test should be implemented ( For Mediors only )
+<img width="1440" alt="Screenshot 2021-01-19 at 23 54 33" src="https://user-images.githubusercontent.com/61087653/105104131-fd480980-5ab1-11eb-8616-2f01c8cdc541.png">
+
+# Response of above sample request 
+
+{
+    "result": "SUCCESSFUL",
+    "errorRecords": []
+}
+
+You can verify all the scenerio's as per requirement specification.
+
+# Assumption
+
+* One Transaction Reference will be linked to only one account number even in the error record.
+* Duplicate records are checked are checked only with tyransaction reference and not account number.
+
+
+
