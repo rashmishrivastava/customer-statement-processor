@@ -61,8 +61,8 @@ You can verify all the scenerio's as per requirement specification.
 
 # Assumption
 
-* One Transaction Reference will be linked to only one account number even in the error record.
-* Duplicate records are checked only with transaction reference and not account number.
+* One Transaction reference will be linked to only one account number even in the error record.
+* Duplicate records are checked only with Transaction reference and not Account number.
 
 
 
