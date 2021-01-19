@@ -36,7 +36,7 @@ public class ErrorRecord {
 
     @Override
     public int hashCode() {
-        return Objects.hash(reference, accountNumber);
+        return Objects.hash(reference);
     }
 
 
