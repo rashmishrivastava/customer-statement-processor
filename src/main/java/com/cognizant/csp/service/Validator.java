@@ -1,9 +1,9 @@
-package com.rabobank.csp.service;
+package com.cognizant.csp.service;
 
-import com.rabobank.csp.enums.ProcessingResult;
-import com.rabobank.csp.model.CustomerStatementProcessorRequest;
-import com.rabobank.csp.model.CustomerStatementProcessorResponse;
-import com.rabobank.csp.model.ErrorRecord;
+import com.cognizant.csp.enums.ProcessingResult;
+import com.cognizant.csp.model.CustomerStatementProcessorRequest;
+import com.cognizant.csp.model.CustomerStatementProcessorResponse;
+import com.cognizant.csp.model.ErrorRecord;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;

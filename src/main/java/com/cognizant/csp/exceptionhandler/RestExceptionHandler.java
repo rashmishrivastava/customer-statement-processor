@@ -1,7 +1,7 @@
-package com.rabobank.csp.exceptionhandler;
+package com.cognizant.csp.exceptionhandler;
 
-import com.rabobank.csp.enums.ProcessingResult;
-import com.rabobank.csp.model.CustomerStatementProcessorResponse;
+import com.cognizant.csp.enums.ProcessingResult;
+import com.cognizant.csp.model.CustomerStatementProcessorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.Ordered;

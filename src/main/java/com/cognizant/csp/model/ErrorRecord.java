@@ -1,4 +1,4 @@
-package com.rabobank.csp.model;
+package com.cognizant.csp.model;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;

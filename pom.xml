@@ -8,7 +8,7 @@
         <version>2.4.2</version>
         <relativePath/>
     </parent>
-    <groupId>com.rabobank.csp</groupId>
+    <groupId>com.cognizant.csp</groupId>
     <artifactId>customer-statement-processor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>customer-statement-processor</name>
@@ -108,7 +108,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.rabobank.csp.CustomerStatementprocessorApplication</mainClass>
+                    <mainClass>com.cognizant.csp.CustomerStatementprocessorApplication</mainClass>
                     <layout>ZIP</layout>
                 </configuration>
                 <executions>

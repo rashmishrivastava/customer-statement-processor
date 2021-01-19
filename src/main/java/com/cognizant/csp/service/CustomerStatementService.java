@@ -1,7 +1,7 @@
-package com.rabobank.csp.service;
+package com.cognizant.csp.service;
 
-import com.rabobank.csp.model.CustomerStatementProcessorRequest;
-import com.rabobank.csp.model.CustomerStatementProcessorResponse;
+import com.cognizant.csp.model.CustomerStatementProcessorRequest;
+import com.cognizant.csp.model.CustomerStatementProcessorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

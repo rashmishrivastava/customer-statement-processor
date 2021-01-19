@@ -1,8 +1,8 @@
-package com.rabobank.csp.api;
+package com.cognizant.csp.api;
 
-import com.rabobank.csp.model.CustomerStatementProcessorRequest;
-import com.rabobank.csp.model.CustomerStatementProcessorResponse;
-import com.rabobank.csp.service.CustomerStatementService;
+import com.cognizant.csp.model.CustomerStatementProcessorRequest;
+import com.cognizant.csp.model.CustomerStatementProcessorResponse;
+import com.cognizant.csp.service.CustomerStatementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

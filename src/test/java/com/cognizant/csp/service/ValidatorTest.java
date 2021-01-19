@@ -1,10 +1,10 @@
-package com.rabobank.csp.service;
+package com.cognizant.csp.service;
 
-import com.rabobank.csp.CustomerStatementprocessorApplication;
-import com.rabobank.csp.enums.ProcessingResult;
-import com.rabobank.csp.model.CustomerStatementItem;
-import com.rabobank.csp.model.CustomerStatementProcessorRequest;
-import com.rabobank.csp.model.CustomerStatementProcessorResponse;
+import com.cognizant.csp.CustomerStatementprocessorApplication;
+import com.cognizant.csp.model.CustomerStatementItem;
+import com.cognizant.csp.model.CustomerStatementProcessorRequest;
+import com.cognizant.csp.model.CustomerStatementProcessorResponse;
+import com.cognizant.csp.enums.ProcessingResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

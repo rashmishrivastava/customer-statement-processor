@@ -1,4 +1,4 @@
-package com.rabobank.csp.model;
+package com.cognizant.csp.model;
 
 import java.util.ArrayList;
 import java.util.Objects;

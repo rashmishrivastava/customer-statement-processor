@@ -1,7 +1,7 @@
-package com.rabobank.csp.model;
+package com.cognizant.csp.model;
 
 import com.google.gson.annotations.SerializedName;
-import com.rabobank.csp.enums.ProcessingResult;
+import com.cognizant.csp.enums.ProcessingResult;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

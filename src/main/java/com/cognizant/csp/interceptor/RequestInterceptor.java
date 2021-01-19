@@ -1,4 +1,4 @@
-package com.rabobank.csp.interceptor;
+package com.cognizant.csp.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

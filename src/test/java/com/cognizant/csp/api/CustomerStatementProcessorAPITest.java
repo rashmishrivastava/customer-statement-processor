@@ -1,10 +1,10 @@
-package com.rabobank.csp.api;
+package com.cognizant.csp.api;
 
+import com.cognizant.csp.CustomerStatementprocessorApplication;
 import com.google.gson.Gson;
-import com.rabobank.csp.CustomerStatementprocessorApplication;
-import com.rabobank.csp.enums.ProcessingResult;
-import com.rabobank.csp.model.CustomerStatementItem;
-import com.rabobank.csp.model.CustomerStatementProcessorRequest;
+import com.cognizant.csp.enums.ProcessingResult;
+import com.cognizant.csp.model.CustomerStatementItem;
+import com.cognizant.csp.model.CustomerStatementProcessorRequest;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
