@@ -1,4 +1,4 @@
-package com.cognizant.csp.api;
+package com.cognizant.csp;
 
 import com.cognizant.csp.CustomerStatementprocessorApplication;
 import com.google.gson.Gson;
@@ -31,7 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = {CustomerStatementprocessorApplication.class, ServletWebServerFactoryAutoConfiguration.class}, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-public class CustomerStatementProcessorAPITest {
+public class CustomerStatementProcessorAPIIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;
