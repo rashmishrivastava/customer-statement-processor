@@ -9,11 +9,9 @@ import java.util.List;
 /**
  * Data class for Customer statement processor response.
  */
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
 public class CustomerStatementProcessorResponse {
     @SerializedName("result")
     private ProcessingResult result = null;

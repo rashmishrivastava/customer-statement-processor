@@ -2,10 +2,7 @@ package com.cognizant.csp.model;
 
 
 import com.google.gson.annotations.SerializedName;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
@@ -13,10 +10,8 @@ import java.math.BigDecimal;
 /**
  * Data class for customer statement item
  */
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
-@EqualsAndHashCode
 public class CustomerStatementItem {
 
     @NotNull

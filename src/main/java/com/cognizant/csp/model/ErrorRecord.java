@@ -6,11 +6,7 @@ import lombok.*;
 /**
  * Data class for Error record.
  */
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode
+@Data
 public class ErrorRecord {
 
     @SerializedName("reference")
