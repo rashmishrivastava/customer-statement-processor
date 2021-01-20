@@ -14,31 +14,31 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class CustomerStatementItem {
 
-    @NotNull
+    @NonNull
     @SerializedName("reference")
     private Long reference;
 
-    @NotNull
+    @NonNull
     @EqualsAndHashCode.Exclude
     @SerializedName("accountNumber")
     private String accountNumber;
 
-    @NotNull
+    @NonNull
     @EqualsAndHashCode.Exclude
     @SerializedName("startBalance")
     private BigDecimal startBalance;
 
-    @NotNull
+    @NonNull
     @EqualsAndHashCode.Exclude
     @SerializedName("mutation")
     private BigDecimal mutation;
 
-    @NotNull
+    @NonNull
     @EqualsAndHashCode.Exclude
     @SerializedName("description")
     private String description;
 
-    @NotNull
+    @NonNull
     @EqualsAndHashCode.Exclude
     @SerializedName("endBalance")
     private BigDecimal endBalance;
