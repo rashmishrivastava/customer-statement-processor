@@ -9,8 +9,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 @ExtendWith(MockitoExtension.class)
 public class CustomerStatementServiceTest {
 
@@ -24,8 +22,8 @@ public class CustomerStatementServiceTest {
     public void whenProcessorCalled_thenValidatorInvokedOnce() {
         CustomerStatementProcessorRequest customerStatementProcessorRequest = Mockito.mock(CustomerStatementProcessorRequest.class);
 
-        Mockito.when(customerStatementService.processor(Mockito.any())).thenReturn(Mockito.mock(CustomerStatementProcessorResponse.class));
-        customerStatementService.processor(customerStatementProcessorRequest);
+        Mockito.when(validator.validateAndGetErrorRecords(Mockito.any())).thenReturn(Mockito.mock(CustomerStatementProcessorResponse.class));
+        customerStatementService.process(customerStatementProcessorRequest);
 
         Mockito.verify(validator, Mockito.times(1)).validateAndGetErrorRecords(customerStatementProcessorRequest);
     }

@@ -3,11 +3,12 @@ package com.cognizant.csp.model;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.Objects;
 
 /**
  * Data class for customer statement item
@@ -15,38 +16,37 @@ import java.util.Objects;
 @Getter
 @Setter
 @AllArgsConstructor
+@EqualsAndHashCode
 public class CustomerStatementItem {
 
+    @NotNull
     @SerializedName("reference")
     private Long reference;
 
+    @NotNull
+    @EqualsAndHashCode.Exclude
     @SerializedName("accountNumber")
     private String accountNumber;
 
+    @NotNull
+    @EqualsAndHashCode.Exclude
     @SerializedName("startBalance")
     private BigDecimal startBalance;
 
+    @NotNull
+    @EqualsAndHashCode.Exclude
     @SerializedName("mutation")
     private BigDecimal mutation;
 
+    @NotNull
+    @EqualsAndHashCode.Exclude
     @SerializedName("description")
     private String description;
 
+    @NotNull
+    @EqualsAndHashCode.Exclude
     @SerializedName("endBalance")
     private BigDecimal endBalance;
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CustomerStatementItem that = (CustomerStatementItem) o;
-        return Objects.equals(reference, that.reference);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(reference);
-    }
 }
 

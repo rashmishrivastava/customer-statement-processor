@@ -29,10 +29,10 @@ public class CustomerStatementProcessorAPI {
      * @param customerStatementProcessorItems the customer statement processor items
      * @return the response entity
      */
-    @PostMapping(path = "/customer-statement-processor/v1", consumes = "application/json", produces = "application/json")
+    @PostMapping(path = "/customer-statements/validations/v1", consumes = "application/json", produces = "application/json")
     public ResponseEntity<CustomerStatementProcessorResponse> customerStatementProcessor(@Valid @RequestBody CustomerStatementProcessorRequest customerStatementProcessorItems) {
 
-        CustomerStatementProcessorResponse transactionResponse = customerStatementService.processor(customerStatementProcessorItems);
+        CustomerStatementProcessorResponse transactionResponse = customerStatementService.process(customerStatementProcessorItems);
 
         return new ResponseEntity<>(transactionResponse, HttpStatus.OK);
     }

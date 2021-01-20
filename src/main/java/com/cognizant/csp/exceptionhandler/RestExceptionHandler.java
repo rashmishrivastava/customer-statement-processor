@@ -2,8 +2,6 @@ package com.cognizant.csp.exceptionhandler;
 
 import com.cognizant.csp.enums.ProcessingResult;
 import com.cognizant.csp.model.CustomerStatementProcessorResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
@@ -23,8 +21,6 @@ import java.util.Collections;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
-
-    private static final Logger log = LoggerFactory.getLogger(RestExceptionHandler.class);
 
     /**
      * Handle any exception response entity.

@@ -8,15 +8,15 @@ info:
   x-apiType: "enterprise"
   description:
     "This API validates the monthly deliveries of customer statement records recieved by bank."
-basePath: "/customer-statement-processor/v1"
+basePath: "/customer-statements/v1"
 paths:
-  /:
+  /validations:
     post:
       tags:
-        - "CustomerStatementProcessor"
+        - "CustomerStatementValidation"
       description:
         "Returns the response upon validating the customer statement records"
-      operationId: "customerStatementProcessor"
+      operationId: "customerstatementvalidation"
       consumes:
         - "application/json"
       produces:

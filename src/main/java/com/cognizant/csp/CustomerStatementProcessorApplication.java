@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @Slf4j
 @SpringBootApplication
-public class CustomerStatementprocessorApplication {
+public class CustomerStatementProcessorApplication {
 
     /**
      * The entry point of application.
@@ -18,7 +18,7 @@ public class CustomerStatementprocessorApplication {
      */
     public static void main(String[] args) {
         log.info("-------Started Customer Statement Processor----------- ");
-        SpringApplication.run(CustomerStatementprocessorApplication.class, args);
+        SpringApplication.run(CustomerStatementProcessorApplication.class, args);
     }
 
 }

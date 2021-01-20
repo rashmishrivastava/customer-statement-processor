@@ -56,7 +56,7 @@ public class Validator {
     private List<ErrorRecord> getNonUniqueReferences(CustomerStatementProcessorRequest customerStatementProcessorRequest) {
         return customerStatementProcessorRequest.stream()
                 .filter(item -> Collections.frequency(customerStatementProcessorRequest, item) > 1)
-                .collect(Collectors.toList()).stream().map(transaction -> {
+                .map(transaction -> {
                     ErrorRecord errorRecord = new ErrorRecord();
                     errorRecord.setReference(transaction.getReference());
                     errorRecord.setAccountNumber(transaction.getAccountNumber());
@@ -72,8 +72,8 @@ public class Validator {
      */
     private List<ErrorRecord> getIncorrectEndBalances(CustomerStatementProcessorRequest customerStatementProcessorRequest) {
         return customerStatementProcessorRequest.stream()
-                .filter(item -> !(item.getStartBalance().add(item.getMutation()).equals(item.getEndBalance())))
-                .collect(Collectors.toList()).stream().map(transaction -> {
+                .filter(item -> (item.getEndBalance().compareTo(item.getStartBalance().add(item.getMutation()))) != 0)
+                .map(transaction -> {
                     ErrorRecord errorRecord = new ErrorRecord();
                     errorRecord.setReference(transaction.getReference());
                     errorRecord.setAccountNumber(transaction.getAccountNumber());

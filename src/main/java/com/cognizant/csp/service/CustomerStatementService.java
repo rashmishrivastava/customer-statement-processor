@@ -2,30 +2,34 @@ package com.cognizant.csp.service;
 
 import com.cognizant.csp.model.CustomerStatementProcessorRequest;
 import com.cognizant.csp.model.CustomerStatementProcessorResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
 /**
- * Customer statement service class for processing customer statement
+ * The type Customer statement service.
  */
 @Component
 public class CustomerStatementService {
 
-    private static final Logger log = LoggerFactory.getLogger(CustomerStatementService.class);
+    private final Validator validator;
 
-    @Autowired
-    private Validator validator;
+    /**
+     * Instantiates a new Customer statement service.
+     *
+     * @param validator the validator
+     */
+    public CustomerStatementService(Validator validator) {
+        this.validator = validator;
+    }
 
 
     /**
-     * Processor customer statement processor response.
+     * Process customer statement processor response.
      *
      * @param customerStatementProcessorItems the customer statement processor items
      * @return the customer statement processor response
      */
-    public CustomerStatementProcessorResponse processor(CustomerStatementProcessorRequest customerStatementProcessorItems) {
+    public CustomerStatementProcessorResponse process(CustomerStatementProcessorRequest customerStatementProcessorItems) {
 
         return validator.validateAndGetErrorRecords(customerStatementProcessorItems);
 

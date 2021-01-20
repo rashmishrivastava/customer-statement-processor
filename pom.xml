@@ -108,7 +108,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.cognizant.csp.CustomerStatementprocessorApplication</mainClass>
+                    <mainClass>com.cognizant.csp.CustomerStatementProcessorApplication</mainClass>
                     <layout>ZIP</layout>
                 </configuration>
                 <executions>

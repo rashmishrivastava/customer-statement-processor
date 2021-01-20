@@ -1,6 +1,5 @@
 package com.cognizant.csp;
 
-import com.cognizant.csp.CustomerStatementprocessorApplication;
 import com.google.gson.Gson;
 import com.cognizant.csp.enums.ProcessingResult;
 import com.cognizant.csp.model.CustomerStatementItem;
@@ -28,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = {CustomerStatementprocessorApplication.class, ServletWebServerFactoryAutoConfiguration.class}, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+@SpringBootTest(classes = {CustomerStatementProcessorApplication.class, ServletWebServerFactoryAutoConfiguration.class}, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 public class CustomerStatementProcessorAPIIntegrationTest {
@@ -40,7 +39,7 @@ public class CustomerStatementProcessorAPIIntegrationTest {
 
     @BeforeEach
     public void setup() {
-        customerStatementProcessorURI = "/customer-statement-processor/v1";
+        customerStatementProcessorURI = "/customer-statements/validations/v1";
     }
 
     @Test
